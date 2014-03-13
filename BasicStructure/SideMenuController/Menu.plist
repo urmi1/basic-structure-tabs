@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>strTitle</key>
+		<string>Home</string>
+		<key>strImage</key>
+		<string>slider-home</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>Home</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>Register Karma Card</string>
+		<key>strImage</key>
+		<string>slider-registerkarmacard</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>RegisterKarmaCards</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>My Account</string>
+		<key>strImage</key>
+		<string>slider-myaccount</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>My Profile</string>
+		<key>strFontColor</key>
+		<string>bdbdbd</string>
+		<key>strDestinationController</key>
+		<string>MyProfile</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>My Karma Points</string>
+		<key>strFontColor</key>
+		<string>bdbdbd</string>
+		<key>strDestinationController</key>
+		<string>MyKarmaPoints</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>My Karma Cards</string>
+		<key>strFontColor</key>
+		<string>bdbdbd</string>
+		<key>strDestinationController</key>
+		<string>MyKarmaCards</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>Messages</string>
+		<key>strImage</key>
+		<string>slider-message</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>Message</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>Share Karma</string>
+		<key>strImage</key>
+		<string>slider-share</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>ShareKarma</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>Settings</string>
+		<key>strImage</key>
+		<string>slider-setting</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>Settings</string>
+	</dict>
+	<dict>
+		<key>strTitle</key>
+		<string>About Us</string>
+		<key>strImage</key>
+		<string>slider-aboutus</string>
+		<key>strFontColor</key>
+		<string>ffffffff</string>
+		<key>strDestinationController</key>
+		<string>AboutUS</string>
+	</dict>
+</array>
+</plist>

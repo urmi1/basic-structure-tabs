@@ -1,0 +1,27 @@
+//
+// Prefix header for all source files of the 'BasicStructure' target in the 'BasicStructure' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <AudioToolbox/AudioToolbox.h>
+    #import "AppDelegate.h"
+    #import "Helper.h"
+    #import "Constants.h"
+    #import "Messages.h"
+    #import "UIColor+extras.h"
+    #import "UIView+extras.h"
+    #import "NSString+extras.h"
+    #import "APIClient.h"
+    #import "APIXMLClient.h"
+    #import "Soap.h"
+#endif
