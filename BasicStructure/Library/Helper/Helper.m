@@ -10,7 +10,6 @@
 #import "TouchXML.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+extras.h"
-#import "SBJson.h"
 
 @implementation Helper
 
@@ -42,41 +41,6 @@
 //    DPToastView *toast = [DPToastView makeToast:pStrMsg];
 //    [toast show];
 //}
-
-#pragma mark -
-#pragma mark Address From Lat Long
-
-+(NSString *)getAddressFromLatLon:(double)pdblLatitude withLongitude:(double)pdblLongitude
-{
-	NSString *urlString = [NSString stringWithFormat:kGeoCodingString,pdblLatitude, pdblLongitude];
-	NSError* error;
-	NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:&error];
-	locationString = [locationString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-	return [locationString substringFromIndex:6];
-}
-
-+(CLLocationCoordinate2D)getLatLonFromAddress:(NSString*)strAddress
-{
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv",[strAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-	NSError* error;
-    NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:&error];
-    NSArray *listItems = [locationString componentsSeparatedByString:@","];
-	
-    double latitude = 0.0;
-    double longitude = 0.0;
-	
-    if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) 
-	{
-        latitude = [[listItems objectAtIndex:2] doubleValue];
-        longitude = [[listItems objectAtIndex:3] doubleValue];
-	}
-
-	CLLocationCoordinate2D location;
-	location.latitude = latitude;
-	location.longitude = longitude;		
-	
-    return location;
-}
 
 #pragma mark -
 #pragma mark Display and Hide loading view
@@ -467,7 +431,7 @@
 +(NSNumber*)getRandomNumber:(NSUInteger)from to:(NSUInteger)to 
 {
 	NSInteger intRandomNo = (int)from + arc4random() % (to-from+1);
-	return [NSNumber numberWithInt:intRandomNo];
+	return [NSNumber numberWithLong:(long)intRandomNo];
 }
 
 #pragma mark -
@@ -763,39 +727,6 @@
         return [NSString stringWithUTF8String: pChars];
     else
         return @"";
-}
-
-+(CLLocationCoordinate2D)getLatLon:(NSString *)pStrAddress
-{
-	NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",[pStrAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-	NSError* error;
-    NSString *strDict = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSASCIIStringEncoding error:&error];
-
-    CLLocationCoordinate2D location;
-    double latitude = 0.0;
-    double longitude = 0.0;
-
-    SBJsonParser *objParser = [[SBJsonParser alloc] init];
-    
-    NSDictionary *resultDictionary = (NSDictionary*) [objParser objectWithString:strDict];
-    if([[resultDictionary objectForKey:@"status"] isEqualToString:@"OK"])
-    {
-        NSArray* arrResults = [(NSDictionary*)resultDictionary objectForKey:@"results"];
-
-        if(arrResults.count > 0)
-        {
-            NSDictionary *dict = [arrResults objectAtIndex:0];
-            NSDictionary *dictGeometry = [dict objectForKey:@"geometry"];
-            NSDictionary *dictLocation = [dictGeometry objectForKey:@"location"];
-            latitude = [[dictLocation valueForKey:@"lat"] doubleValue];
-            longitude = [[dictLocation valueForKey:@"lng"] doubleValue];
-        }
-    }
-
-    location.latitude = latitude;
-    location.longitude = longitude;
-
-    return location;
 }
 
 @end

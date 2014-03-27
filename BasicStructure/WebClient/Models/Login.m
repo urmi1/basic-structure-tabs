@@ -29,7 +29,7 @@ static Login *staticInstance = nil;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeInt:self.intUserID forKey:kUserID];
+    [encoder encodeInt:(int)self.intUserID forKey:kUserID];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {

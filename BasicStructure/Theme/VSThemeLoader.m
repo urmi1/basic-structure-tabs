@@ -70,7 +70,7 @@ static VSThemeLoader *singletonManager = nil;
 
 -(void)loadDefaultTheme{
     NSInteger intUserTheme =  [(NSNumber*)[Helper getFromNSUserDefaults:kUserPreferredTheme] integerValue];
-    _currentTheme = [self themeNamed:[NSString stringWithFormat:@"Theme%d",intUserTheme]];
+    _currentTheme = [self themeNamed:[NSString stringWithFormat:@"Theme%ld",(long)intUserTheme]];
 }
 
 -(void)loadNextTheme{    
@@ -83,9 +83,9 @@ static VSThemeLoader *singletonManager = nil;
     else
         currentThemeIndex =0;
     
-    _currentTheme = [self themeNamed:[NSString stringWithFormat:@"Theme%d",currentThemeIndex]];
+    _currentTheme = [self themeNamed:[NSString stringWithFormat:@"Theme%ld",(long)currentThemeIndex]];
     
-    [Helper addToNSUserDefaults:[NSNumber numberWithInt:currentThemeIndex] forKey:kUserPreferredTheme];
+    [Helper addToNSUserDefaults:[NSNumber numberWithLong:currentThemeIndex] forKey:kUserPreferredTheme];
 }
 
 @end

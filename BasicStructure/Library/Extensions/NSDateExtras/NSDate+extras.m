@@ -55,7 +55,7 @@ static NSDateFormatter *displayFormatter;
 			text = @"Yesterday";
 			break;
 		default:
-			text = [NSString stringWithFormat:@"%d days ago", daysAgo];
+			text = [NSString stringWithFormat:@"%lu days ago", (unsigned long)daysAgo];
 	}
 	return text;
 }

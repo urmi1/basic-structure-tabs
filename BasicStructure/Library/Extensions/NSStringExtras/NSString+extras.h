@@ -39,7 +39,7 @@
 - (NSString*)stringByUnescapingURL;
 - (BOOL) containsString:(NSString *)aString;
 - (BOOL) containsString:(NSString *)aString ignoringCase:(BOOL)flag;
-- (int)countSubstring:(NSString *)aString ignoringCase:(BOOL)flag;
+- (long)countSubstring:(NSString *)aString ignoringCase:(BOOL)flag;
 
 //Date Compare
 -(BOOL)isGreaterToDate:(NSString *)pStrToDate;

@@ -46,7 +46,7 @@
 
 -(void)shuffleArray
 {
-    for (int i = ([self count]-1); i >= 1; --i)
+    for (long i = ([self count]-1); i >= 1; --i)
     {
         int j = arc4random() % i;
         id tempObject = [self objectAtIndex:j];
@@ -58,14 +58,11 @@
 
 -(void)reverseArray
 {
-    int count = [self count];
-    
-    for (int i = 0; i < count / 2; ++i)
+    long count = [self count];
+    for (long i = 0; i < count / 2; ++i)
     {
-        int j = count - i - 1;
-        
+        long j = count - i - 1;
         id tempObject = [self objectAtIndex:i];
-        
         [self replaceObjectAtIndex:i withObject:[self objectAtIndex:j]];
         [self replaceObjectAtIndex:j withObject:tempObject];
     }

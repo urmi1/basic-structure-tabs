@@ -33,7 +33,7 @@
 } /*trimWhiteSpace*/
 
 
--(NSString *)ellipsizeAfterNWords: (NSInteger) n 
+-(NSString *)ellipsizeAfterNWords: (int) n
 {	
 	NSArray *stringComponents = [self componentsSeparatedByString: @" "];
 	NSMutableArray *componentsCopy = [stringComponents mutableCopy];
@@ -189,9 +189,9 @@
     return [self rangeOfString:aString options:mask].length > 0;
 }
 
-- (int)countSubstring:(NSString *)aString ignoringCase:(BOOL)flag {
+- (long)countSubstring:(NSString *)aString ignoringCase:(BOOL)flag {
     unsigned mask = (flag ? NSCaseInsensitiveSearch : 0);
-    return [self rangeOfString:aString options:mask].length;
+    return (long) [self rangeOfString:aString options:mask].length;
 }
 
 #pragma mark -
@@ -241,7 +241,7 @@
     const char *value = [self UTF8String];
     
     unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(value, strlen(value), outputBuffer);
+    CC_MD5(value, (int) strlen(value), outputBuffer);
     
     NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){

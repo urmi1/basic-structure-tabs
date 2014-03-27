@@ -30,9 +30,6 @@
 +(BOOL)isPad;
 +(BOOL)isSimulator;
 
-//Address From LatLong
-+(NSString *)getAddressFromLatLon:(double)pdblLatitude withLongitude:(double)pdblLongitude;
-
 //String function
 +(NSString*)getStringFromDate:(NSDate*)pDate withFormat:(NSString*)pDateFormat;
 +(NSDate*)getDateFromString:(NSString*)pStrDate withFormat:(NSString*)pDateFormat;
@@ -128,5 +125,4 @@
 
 +(NSString*)checkNullStringFromDB:(char *)pChars;
 
-+(CLLocationCoordinate2D)getLatLon:(NSString *)pStrAddress;
 @end
